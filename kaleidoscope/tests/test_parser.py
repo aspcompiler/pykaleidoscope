@@ -3,6 +3,7 @@ from kaleidoscope.ast import (
     CallExprAST,
     ExternalDeclaration,
     FunctionAST,
+    IfExprAST,
     NumberExprAST,
     PrototypeAST,
     VariableExprAST,
@@ -21,6 +22,16 @@ def test_identifier():
 def test_call():
     assert parse("f(1, 2)") == make_anonymous(
         CallExprAST(callee="f", args=[NumberExprAST(1), NumberExprAST(2)])
+    )
+
+
+def test_if():
+    assert parse("if x < 0 then 0 else 1") == make_anonymous(
+        IfExprAST(
+            BinaryExprAST("<", VariableExprAST("x"), NumberExprAST(0)),
+            NumberExprAST(0),
+            NumberExprAST(1),
+        )
     )
 
 

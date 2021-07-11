@@ -20,3 +20,29 @@ def test_use_libc():
     assert e.evaluate("extern floor(x)") is None
     assert e.evaluate("def cfadder(x) ceil(x) + floor(x)") is None
     assert e.evaluate("cfadder(3.14)") == 7.0
+
+
+def test_if_expression():
+    e = Evaluator()
+    assert e.evaluate("if 1 < 2 then 1 else 2") == 1
+
+
+def test_if_function():
+    e = Evaluator()
+    e.evaluate("def foo(a b) a * if a < b then a + 1 else b + 1")
+    assert e.evaluate("foo(3, 4)") == 12
+    assert e.evaluate("foo(5, 4)") == 25
+
+
+def test_nested_if_funcion():
+    e = Evaluator()
+    e.evaluate(
+        """
+        def foo(a b c)
+            if a < b
+                then if a < c then a * 2 else c * 2
+                else b * 2"""
+    )
+    assert e.evaluate("foo(1, 20, 300)") == 2
+    assert e.evaluate("foo(10, 2, 300)") == 4
+    assert e.evaluate("foo(100, 2000, 30)") == 60

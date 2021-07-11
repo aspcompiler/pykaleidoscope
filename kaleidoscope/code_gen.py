@@ -5,6 +5,7 @@ from kaleidoscope.ast import (
     BinaryExprAST,
     CallExprAST,
     FunctionAST,
+    IfExprAST,
     NumberExprAST,
     PrototypeAST,
     VariableExprAST,
@@ -79,3 +80,31 @@ class CodeGen(ASTVisitor):
         retval = self.visit(node.body)
         self.builder.ret(retval)
         return func
+
+    def visit_IfExprAST(self, node: IfExprAST):
+        cond_val = self.visit(node.cond)
+        cmp = self.builder.fcmp_ordered(
+            "!=", cond_val, ir.Constant(ir.DoubleType(), 0.0), "ifcond"
+        )
+
+        then_bb = self.builder.function.append_basic_block("then")
+        else_bb = ir.Block(self.builder.function, "else")
+        merge_bb = ir.Block(self.builder.function, "ifcont")
+        self.builder.cbranch(cmp, then_bb, else_bb)
+
+        self.builder.position_at_start(then_bb)
+        then_val = self.visit(node.then_expr)
+        self.builder.branch(merge_bb)
+        then_bb = self.builder.block
+
+        self.builder.function.basic_blocks.append(else_bb)
+        self.builder.position_at_start(else_bb)
+        else_val = self.visit(node.else_expr)
+        self.builder.branch(merge_bb)
+
+        self.builder.function.basic_blocks.append(merge_bb)
+        self.builder.position_at_start(merge_bb)
+        phi = self.builder.phi(ir.DoubleType(), "iftmp")
+        phi.add_incoming(then_val, then_bb)
+        phi.add_incoming(else_val, else_bb)
+        return phi

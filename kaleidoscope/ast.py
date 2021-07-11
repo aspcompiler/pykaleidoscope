@@ -42,6 +42,13 @@ class CallExprAST(ExprAST):
 
 
 @dataclass
+class IfExprAST(ExprAST):
+    cond: ExprAST
+    then_expr: ExprAST
+    else_expr: ExprAST
+
+
+@dataclass
 class PrototypeAST(ASTNode):
     name: str = field(compare=False)
     args: List[str]

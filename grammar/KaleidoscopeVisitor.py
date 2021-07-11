@@ -29,6 +29,11 @@ class KaleidoscopeVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by KaleidoscopeParser#IfExpression.
+    def visitIfExpression(self, ctx:KaleidoscopeParser.IfExpressionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by KaleidoscopeParser#expression.
     def visitExpression(self, ctx:KaleidoscopeParser.ExpressionContext):
         return self.visitChildren(ctx)

@@ -9,6 +9,7 @@ from kaleidoscope.ast import (
     ExprAST,
     ExternalDeclaration,
     FunctionAST,
+    IfExprAST,
     NumberExprAST,
     PrototypeAST,
     TopLevel,
@@ -53,6 +54,11 @@ class ParserVisitor(KaleidoscopeVisitor):
         name = ctx.Identifier().getText()
         args = [self.visit(expression) for expression in ctx.expression()]
         return CallExprAST(name, args)
+
+    def visitIfExpression(self, ctx: KaleidoscopeParser.IfExpressionContext):
+        return IfExprAST(
+            self.visit(ctx.cond), self.visit(ctx.then_expr), self.visit(ctx.else_expr)
+        )
 
     def visitExpression(self, ctx: KaleidoscopeParser.ExpressionContext):
         bop = ctx.bop

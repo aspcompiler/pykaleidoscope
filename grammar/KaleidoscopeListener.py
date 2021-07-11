@@ -44,6 +44,15 @@ class KaleidoscopeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by KaleidoscopeParser#IfExpression.
+    def enterIfExpression(self, ctx:KaleidoscopeParser.IfExpressionContext):
+        pass
+
+    # Exit a parse tree produced by KaleidoscopeParser#IfExpression.
+    def exitIfExpression(self, ctx:KaleidoscopeParser.IfExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by KaleidoscopeParser#expression.
     def enterExpression(self, ctx:KaleidoscopeParser.ExpressionContext):
         pass

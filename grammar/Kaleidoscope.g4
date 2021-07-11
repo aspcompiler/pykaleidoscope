@@ -48,15 +48,16 @@ primaryExpression
     | LPAREN expression RPAREN                                              # ParenExpression
     | Identifier                                                            # IdentifierExpression
     | Identifier (LPAREN (expression (COMMA expression)*)? RPAREN)          # CallExpression
+    | IF cond=expression THEN then_expr=expression ELSE else_expr=expression # IfExpression
     ;
 
 // We use antlr4 adaptive parsing to resolve precedence and recurcion.
 // See https://www.antlr.org/papers/allstar-techreport.pdf
 expression
-    : lhs=expression bop=ASTERISK rhs=expression                                    
-    | lhs=expression bop=( PLUS | MINUS ) rhs=expression                           
-    | lhs=expression bop=LEFTANGLE rhs=expression                                       
-    | primaryExpression                                                     
+    : lhs=expression bop=ASTERISK rhs=expression
+    | lhs=expression bop=( PLUS | MINUS ) rhs=expression
+    | lhs=expression bop=LEFTANGLE rhs=expression
+    | primaryExpression
     ;
 
 prototype

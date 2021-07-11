@@ -12,29 +12,31 @@ else:
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24")
-        buf.write("D\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\2")
+        buf.write("K\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\2")
         buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\7\2\26\n\2\f\2\16\2\31\13\2\5")
-        buf.write("\2\33\n\2\3\2\5\2\36\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
-        buf.write("\3\3\3\3\3\3\3\3\3\7\3,\n\3\f\3\16\3/\13\3\3\4\3\4\3\4")
-        buf.write("\7\4\64\n\4\f\4\16\4\67\13\4\3\4\3\4\3\5\3\5\3\5\3\5\3")
-        buf.write("\5\3\5\3\5\5\5B\n\5\3\5\2\3\4\6\2\4\6\b\2\3\3\2\13\f\2")
-        buf.write("J\2\35\3\2\2\2\4\37\3\2\2\2\6\60\3\2\2\2\bA\3\2\2\2\n")
-        buf.write("\36\7\24\2\2\13\f\7\3\2\2\f\r\5\4\3\2\r\16\7\4\2\2\16")
-        buf.write("\36\3\2\2\2\17\36\7\23\2\2\20\21\7\23\2\2\21\32\7\3\2")
-        buf.write("\2\22\27\5\4\3\2\23\24\7\5\2\2\24\26\5\4\3\2\25\23\3\2")
-        buf.write("\2\2\26\31\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30\33\3")
-        buf.write("\2\2\2\31\27\3\2\2\2\32\22\3\2\2\2\32\33\3\2\2\2\33\34")
-        buf.write("\3\2\2\2\34\36\7\4\2\2\35\n\3\2\2\2\35\13\3\2\2\2\35\17")
-        buf.write("\3\2\2\2\35\20\3\2\2\2\36\3\3\2\2\2\37 \b\3\1\2 !\5\2")
-        buf.write("\2\2!-\3\2\2\2\"#\f\6\2\2#$\7\n\2\2$,\5\4\3\7%&\f\5\2")
-        buf.write("\2&\'\t\2\2\2\',\5\4\3\6()\f\4\2\2)*\7\r\2\2*,\5\4\3\5")
-        buf.write("+\"\3\2\2\2+%\3\2\2\2+(\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.")
-        buf.write("\3\2\2\2.\5\3\2\2\2/-\3\2\2\2\60\61\7\23\2\2\61\65\7\3")
-        buf.write("\2\2\62\64\7\23\2\2\63\62\3\2\2\2\64\67\3\2\2\2\65\63")
-        buf.write("\3\2\2\2\65\66\3\2\2\2\668\3\2\2\2\67\65\3\2\2\289\7\4")
-        buf.write("\2\29\7\3\2\2\2:;\7\7\2\2;<\5\6\4\2<=\5\4\3\2=B\3\2\2")
-        buf.write("\2>?\7\b\2\2?B\5\6\4\2@B\5\4\3\2A:\3\2\2\2A>\3\2\2\2A")
-        buf.write("@\3\2\2\2B\t\3\2\2\2\t\27\32\35+-\65A")
+        buf.write("\2\33\n\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2%\n\2\3\3")
+        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\63\n")
+        buf.write("\3\f\3\16\3\66\13\3\3\4\3\4\3\4\7\4;\n\4\f\4\16\4>\13")
+        buf.write("\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5I\n\5\3\5\2")
+        buf.write("\3\4\6\2\4\6\b\2\3\3\2\13\f\2R\2$\3\2\2\2\4&\3\2\2\2\6")
+        buf.write("\67\3\2\2\2\bH\3\2\2\2\n%\7\24\2\2\13\f\7\3\2\2\f\r\5")
+        buf.write("\4\3\2\r\16\7\4\2\2\16%\3\2\2\2\17%\7\23\2\2\20\21\7\23")
+        buf.write("\2\2\21\32\7\3\2\2\22\27\5\4\3\2\23\24\7\5\2\2\24\26\5")
+        buf.write("\4\3\2\25\23\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\27\30")
+        buf.write("\3\2\2\2\30\33\3\2\2\2\31\27\3\2\2\2\32\22\3\2\2\2\32")
+        buf.write("\33\3\2\2\2\33\34\3\2\2\2\34%\7\4\2\2\35\36\7\16\2\2\36")
+        buf.write("\37\5\4\3\2\37 \7\17\2\2 !\5\4\3\2!\"\7\20\2\2\"#\5\4")
+        buf.write("\3\2#%\3\2\2\2$\n\3\2\2\2$\13\3\2\2\2$\17\3\2\2\2$\20")
+        buf.write("\3\2\2\2$\35\3\2\2\2%\3\3\2\2\2&\'\b\3\1\2\'(\5\2\2\2")
+        buf.write("(\64\3\2\2\2)*\f\6\2\2*+\7\n\2\2+\63\5\4\3\7,-\f\5\2\2")
+        buf.write("-.\t\2\2\2.\63\5\4\3\6/\60\f\4\2\2\60\61\7\r\2\2\61\63")
+        buf.write("\5\4\3\5\62)\3\2\2\2\62,\3\2\2\2\62/\3\2\2\2\63\66\3\2")
+        buf.write("\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\5\3\2\2\2\66\64\3")
+        buf.write("\2\2\2\678\7\23\2\28<\7\3\2\29;\7\23\2\2:9\3\2\2\2;>\3")
+        buf.write("\2\2\2<:\3\2\2\2<=\3\2\2\2=?\3\2\2\2><\3\2\2\2?@\7\4\2")
+        buf.write("\2@\7\3\2\2\2AB\7\7\2\2BC\5\6\4\2CD\5\4\3\2DI\3\2\2\2")
+        buf.write("EF\7\b\2\2FI\5\6\4\2GI\5\4\3\2HA\3\2\2\2HE\3\2\2\2HG\3")
+        buf.write("\2\2\2I\t\3\2\2\2\t\27\32$\62\64<H")
         return buf.getvalue()
 
 
@@ -107,6 +109,43 @@ class KaleidoscopeParser ( Parser ):
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
 
+
+
+    class IfExpressionContext(PrimaryExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a KaleidoscopeParser.PrimaryExpressionContext
+            super().__init__(parser)
+            self.cond = None # ExpressionContext
+            self.then_expr = None # ExpressionContext
+            self.else_expr = None # ExpressionContext
+            self.copyFrom(ctx)
+
+        def IF(self):
+            return self.getToken(KaleidoscopeParser.IF, 0)
+        def THEN(self):
+            return self.getToken(KaleidoscopeParser.THEN, 0)
+        def ELSE(self):
+            return self.getToken(KaleidoscopeParser.ELSE, 0)
+        def expression(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(KaleidoscopeParser.ExpressionContext)
+            else:
+                return self.getTypedRuleContext(KaleidoscopeParser.ExpressionContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfExpression" ):
+                listener.enterIfExpression(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfExpression" ):
+                listener.exitIfExpression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfExpression" ):
+                return visitor.visitIfExpression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ParenExpressionContext(PrimaryExpressionContext):
@@ -232,7 +271,7 @@ class KaleidoscopeParser ( Parser ):
         self.enterRule(localctx, 0, self.RULE_primaryExpression)
         self._la = 0 # Token type
         try:
-            self.state = 27
+            self.state = 34
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
             if la_ == 1:
@@ -271,7 +310,7 @@ class KaleidoscopeParser ( Parser ):
                 self.state = 24
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << KaleidoscopeParser.LPAREN) | (1 << KaleidoscopeParser.Identifier) | (1 << KaleidoscopeParser.Number))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << KaleidoscopeParser.LPAREN) | (1 << KaleidoscopeParser.IF) | (1 << KaleidoscopeParser.Identifier) | (1 << KaleidoscopeParser.Number))) != 0):
                     self.state = 16
                     self.expression(0)
                     self.state = 21
@@ -290,6 +329,23 @@ class KaleidoscopeParser ( Parser ):
 
                 self.state = 26
                 self.match(KaleidoscopeParser.RPAREN)
+                pass
+
+            elif la_ == 5:
+                localctx = KaleidoscopeParser.IfExpressionContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
+                self.state = 27
+                self.match(KaleidoscopeParser.IF)
+                self.state = 28
+                localctx.cond = self.expression(0)
+                self.state = 29
+                self.match(KaleidoscopeParser.THEN)
+                self.state = 30
+                localctx.then_expr = self.expression(0)
+                self.state = 31
+                self.match(KaleidoscopeParser.ELSE)
+                self.state = 32
+                localctx.else_expr = self.expression(0)
                 pass
 
 
@@ -363,10 +419,10 @@ class KaleidoscopeParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 30
+            self.state = 37
             self.primaryExpression()
             self._ctx.stop = self._input.LT(-1)
-            self.state = 43
+            self.state = 50
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -374,20 +430,20 @@ class KaleidoscopeParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 41
+                    self.state = 48
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
                     if la_ == 1:
                         localctx = KaleidoscopeParser.ExpressionContext(self, _parentctx, _parentState)
                         localctx.lhs = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 32
+                        self.state = 39
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 33
+                        self.state = 40
                         localctx.bop = self.match(KaleidoscopeParser.ASTERISK)
-                        self.state = 34
+                        self.state = 41
                         localctx.rhs = self.expression(5)
                         pass
 
@@ -395,11 +451,11 @@ class KaleidoscopeParser ( Parser ):
                         localctx = KaleidoscopeParser.ExpressionContext(self, _parentctx, _parentState)
                         localctx.lhs = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 35
+                        self.state = 42
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
-                        self.state = 36
+                        self.state = 43
                         localctx.bop = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==KaleidoscopeParser.PLUS or _la==KaleidoscopeParser.MINUS):
@@ -407,7 +463,7 @@ class KaleidoscopeParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 37
+                        self.state = 44
                         localctx.rhs = self.expression(4)
                         pass
 
@@ -415,18 +471,18 @@ class KaleidoscopeParser ( Parser ):
                         localctx = KaleidoscopeParser.ExpressionContext(self, _parentctx, _parentState)
                         localctx.lhs = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 38
+                        self.state = 45
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
-                        self.state = 39
+                        self.state = 46
                         localctx.bop = self.match(KaleidoscopeParser.LEFTANGLE)
-                        self.state = 40
+                        self.state = 47
                         localctx.rhs = self.expression(3)
                         pass
 
              
-                self.state = 45
+                self.state = 52
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
 
@@ -495,21 +551,21 @@ class KaleidoscopeParser ( Parser ):
         try:
             localctx = KaleidoscopeParser.FunctionPrototypeContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 46
+            self.state = 53
             self.match(KaleidoscopeParser.Identifier)
-            self.state = 47
+            self.state = 54
             self.match(KaleidoscopeParser.LPAREN)
-            self.state = 51
+            self.state = 58
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==KaleidoscopeParser.Identifier:
-                self.state = 48
+                self.state = 55
                 self.match(KaleidoscopeParser.Identifier)
-                self.state = 53
+                self.state = 60
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 54
+            self.state = 61
             self.match(KaleidoscopeParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -624,31 +680,31 @@ class KaleidoscopeParser ( Parser ):
         localctx = KaleidoscopeParser.TopLevelContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_topLevel)
         try:
-            self.state = 63
+            self.state = 70
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [KaleidoscopeParser.DEF]:
                 localctx = KaleidoscopeParser.FunctionDefinitionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 56
+                self.state = 63
                 self.match(KaleidoscopeParser.DEF)
-                self.state = 57
+                self.state = 64
                 self.prototype()
-                self.state = 58
+                self.state = 65
                 self.expression(0)
                 pass
             elif token in [KaleidoscopeParser.EXTERN]:
                 localctx = KaleidoscopeParser.ExternalDeclarationContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 60
+                self.state = 67
                 self.match(KaleidoscopeParser.EXTERN)
-                self.state = 61
+                self.state = 68
                 self.prototype()
                 pass
-            elif token in [KaleidoscopeParser.LPAREN, KaleidoscopeParser.Identifier, KaleidoscopeParser.Number]:
+            elif token in [KaleidoscopeParser.LPAREN, KaleidoscopeParser.IF, KaleidoscopeParser.Identifier, KaleidoscopeParser.Number]:
                 localctx = KaleidoscopeParser.TopLevelExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 62
+                self.state = 69
                 self.expression(0)
                 pass
             else:
