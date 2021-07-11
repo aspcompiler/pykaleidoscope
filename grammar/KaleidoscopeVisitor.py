@@ -54,10 +54,5 @@ class KaleidoscopeVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by KaleidoscopeParser#program.
-    def visitProgram(self, ctx:KaleidoscopeParser.ProgramContext):
-        return self.visitChildren(ctx)
-
-
 
 del KaleidoscopeParser

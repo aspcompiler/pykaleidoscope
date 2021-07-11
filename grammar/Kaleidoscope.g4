@@ -63,13 +63,8 @@ prototype
     : Identifier LPAREN (Identifier)* RPAREN                                # FunctionPrototype
     ;
 
-top
+topLevel
     : DEF prototype expression                                              # FunctionDefinition
     | EXTERN prototype                                                      # ExternalDeclaration
     | expression                                                            # TopLevelExpression
     ;
-
-// Full source parse accepts a series of definitions or prototypes, all top level expressions
-// are generated into a single function called Main()
-program
-    : top*;

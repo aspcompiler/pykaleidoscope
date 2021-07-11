@@ -6,24 +6,35 @@ from grammar.KaleidoscopeVisitor import KaleidoscopeVisitor
 
 from kaleidoscope.ast import (
     BinaryExprAST,
+    ExprAST,
     ExternalDeclaration,
     FunctionAST,
     NumberExprAST,
-    Program,
     PrototypeAST,
+    TopLevel,
     VariableExprAST,
     CallExprAST,
 )
 
 
-def parse(program: str) -> Program:
+def parse(program: str) -> TopLevel:
     lexer = KaleidoscopeLexer(InputStream(program))
     stream = CommonTokenStream(lexer)
     parser = KaleidoscopeParser(stream)
 
-    tree = parser.program()
+    tree = parser.topLevel()
 
-    return ParserVisitor().visitProgram(tree)
+    return ParserVisitor().visit(tree)
+
+
+_anonymous_function_counter = 0
+
+
+def make_anonymous(expr: ExprAST):
+    global _anonymous_function_counter
+    _anonymous_function_counter += 1
+    proto = PrototypeAST(f"__anon_expr{_anonymous_function_counter}", [])
+    return FunctionAST(proto, expr)
 
 
 class ParserVisitor(KaleidoscopeVisitor):
@@ -72,7 +83,5 @@ class ParserVisitor(KaleidoscopeVisitor):
     def visitTopLevelExpression(
         self, ctx: KaleidoscopeParser.TopLevelExpressionContext
     ):
-        return self.visit(ctx.expression())
-
-    def visitProgram(self, ctx: KaleidoscopeParser.ProgramContext):
-        return Program([self.visit(top) for top in ctx.top()])
+        expression = self.visit(ctx.expression())
+        return make_anonymous(expression)

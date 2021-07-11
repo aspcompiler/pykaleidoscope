@@ -89,14 +89,5 @@ class KaleidoscopeListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by KaleidoscopeParser#program.
-    def enterProgram(self, ctx:KaleidoscopeParser.ProgramContext):
-        pass
-
-    # Exit a parse tree produced by KaleidoscopeParser#program.
-    def exitProgram(self, ctx:KaleidoscopeParser.ProgramContext):
-        pass
-
-
 
 del KaleidoscopeParser

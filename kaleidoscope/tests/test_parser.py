@@ -4,93 +4,80 @@ from kaleidoscope.ast import (
     ExternalDeclaration,
     FunctionAST,
     NumberExprAST,
-    Program,
     PrototypeAST,
     VariableExprAST,
 )
-from kaleidoscope.parser import parse
+from kaleidoscope.parser import make_anonymous, parse
 
 
 def test_number():
-    ast = parse("2")
-    exp = ast.tops[0]
-    assert exp == NumberExprAST(2)
+    assert parse("2") == make_anonymous(NumberExprAST(2))
 
 
 def test_identifier():
-    ast = parse("a")
-    exp = ast.tops[0]
-    assert exp == VariableExprAST("a")
+    assert parse("a") == make_anonymous(VariableExprAST("a"))
 
 
 def test_call():
-    ast = parse("f(1, 2)")
-    exp = ast.tops[0]
-    assert exp == CallExprAST(callee="f", args=[NumberExprAST(1), NumberExprAST(2)])
+    assert parse("f(1, 2)") == make_anonymous(
+        CallExprAST(callee="f", args=[NumberExprAST(1), NumberExprAST(2)])
+    )
 
 
 def test_binary():
-    p = """
-    1 + 2
-    3 * 4
-    0 < 5
-    """.strip()
-    ast = parse(p)
-
-    assert ast == Program(
-        tops=[
-            BinaryExprAST("+", NumberExprAST(1), NumberExprAST(2)),
-            BinaryExprAST("*", NumberExprAST(3), NumberExprAST(4)),
-            BinaryExprAST("<", NumberExprAST(0), NumberExprAST(5)),
-        ]
+    assert parse("1 + 2") == make_anonymous(
+        BinaryExprAST("+", NumberExprAST(1), NumberExprAST(2))
+    )
+    assert parse("3 * 4") == make_anonymous(
+        BinaryExprAST("*", NumberExprAST(3), NumberExprAST(4))
+    )
+    assert parse("0 < 5") == make_anonymous(
+        BinaryExprAST("<", NumberExprAST(0), NumberExprAST(5))
     )
 
 
 def test_precedence():
-    p = """
-    1 + 2 * 3
-    3 * 4 - 5
-    0 < 5 - a
-    (1 + 2) * 3
-    """.strip()
-    ast = parse(p)
+    assert parse("1 + 2 * 3") == make_anonymous(
+        BinaryExprAST(
+            "+",
+            NumberExprAST(1),
+            BinaryExprAST("*", NumberExprAST(2), NumberExprAST(3)),
+        )
+    )
 
-    assert ast == Program(
-        tops=[
-            BinaryExprAST(
-                "+",
-                NumberExprAST(1),
-                BinaryExprAST("*", NumberExprAST(2), NumberExprAST(3)),
-            ),
-            BinaryExprAST(
-                "-",
-                BinaryExprAST("*", NumberExprAST(3), NumberExprAST(4)),
-                NumberExprAST(5),
-            ),
-            BinaryExprAST(
-                "<",
-                NumberExprAST(0),
-                BinaryExprAST("-", NumberExprAST(5), VariableExprAST("a")),
-            ),
-            BinaryExprAST(
-                "*",
-                BinaryExprAST("+", NumberExprAST(1), NumberExprAST(2)),
-                NumberExprAST(3),
-            ),
-        ]
+    assert parse("3 * 4 - 5") == make_anonymous(
+        BinaryExprAST(
+            "-",
+            BinaryExprAST("*", NumberExprAST(3), NumberExprAST(4)),
+            NumberExprAST(5),
+        )
+    )
+
+    assert parse("0 < 5 - a") == make_anonymous(
+        BinaryExprAST(
+            "<",
+            NumberExprAST(0),
+            BinaryExprAST("-", NumberExprAST(5), VariableExprAST("a")),
+        )
+    )
+
+    assert parse("(1 + 2) * 3") == make_anonymous(
+        BinaryExprAST(
+            "*",
+            BinaryExprAST("+", NumberExprAST(1), NumberExprAST(2)),
+            NumberExprAST(3),
+        )
     )
 
 
 def test_extern():
-    ast = parse("extern sin(alpha)")
-    exp = ast.tops[0]
-    assert exp == ExternalDeclaration(proto=PrototypeAST("sin", args=["alpha"]))
+    assert parse("extern sin(alpha)") == ExternalDeclaration(
+        proto=PrototypeAST("sin", args=["alpha"])
+    )
 
 
 def test_funcdef():
-    ast = parse("def diff(x, y) x - y")
-    exp = ast.tops[0]
-    assert exp == FunctionAST(
+    assert parse("def diff(x, y) x - y") == FunctionAST(
         proto=PrototypeAST("diff", args=["x", "y"]),
         body=BinaryExprAST("-", VariableExprAST("x"), VariableExprAST("y")),
     )

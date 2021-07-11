@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 
@@ -43,7 +43,7 @@ class CallExprAST(ExprAST):
 
 @dataclass
 class PrototypeAST(ASTNode):
-    name: str
+    name: str = field(compare=False)
     args: List[str]
 
 
@@ -56,8 +56,3 @@ class FunctionAST(TopLevel):
 @dataclass
 class ExternalDeclaration(TopLevel):
     proto: PrototypeAST
-
-
-@dataclass
-class Program(ASTNode):
-    tops: List[TopLevel]
