@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 
 
 class ASTNode:
@@ -46,6 +46,15 @@ class IfExprAST(ExprAST):
     cond: ExprAST
     then_expr: ExprAST
     else_expr: ExprAST
+
+
+@dataclass
+class ForExprAST(ExprAST):
+    var_name: str
+    start: ExprAST
+    end: ExprAST
+    step: Optional[ExprAST]
+    body: ExprAST
 
 
 @dataclass

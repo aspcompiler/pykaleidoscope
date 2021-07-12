@@ -34,6 +34,9 @@ IF: 'if';
 THEN: 'then';
 ELSE: 'else';
 
+FOR: 'for';
+IN: 'in';
+
 LineComment: '#' ~[\r\n]* EndOfLine_ -> skip;
 WhiteSpace: [ \t\r\n\f]+ -> skip;
 
@@ -48,7 +51,11 @@ primaryExpression
     | LPAREN expression RPAREN                                              # ParenExpression
     | Identifier                                                            # IdentifierExpression
     | Identifier (LPAREN (expression (COMMA expression)*)? RPAREN)          # CallExpression
-    | IF cond=expression THEN then_expr=expression ELSE else_expr=expression # IfExpression
+    | IF cond=expression 
+      THEN then_expr=expression 
+      ELSE else_expr=expression                                             # IfExpression
+    | FOR Identifier ASSIGN start=expression COMMA end=expression
+        (COMMA step=expression)? IN body=expression                         # ForExpression
     ;
 
 // We use antlr4 adaptive parsing to resolve precedence and recurcion.

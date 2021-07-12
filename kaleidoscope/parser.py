@@ -8,6 +8,7 @@ from kaleidoscope.ast import (
     BinaryExprAST,
     ExprAST,
     ExternalDeclaration,
+    ForExprAST,
     FunctionAST,
     IfExprAST,
     NumberExprAST,
@@ -58,6 +59,15 @@ class ParserVisitor(KaleidoscopeVisitor):
     def visitIfExpression(self, ctx: KaleidoscopeParser.IfExpressionContext):
         return IfExprAST(
             self.visit(ctx.cond), self.visit(ctx.then_expr), self.visit(ctx.else_expr)
+        )
+
+    def visitForExpression(self, ctx: KaleidoscopeParser.ForExpressionContext):
+        return ForExprAST(
+            ctx.Identifier().getText(),
+            self.visit(ctx.start),
+            self.visit(ctx.end),
+            self.visit(ctx.step) if ctx.step else None,
+            self.visit(ctx.body),
         )
 
     def visitExpression(self, ctx: KaleidoscopeParser.ExpressionContext):

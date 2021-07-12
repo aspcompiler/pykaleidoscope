@@ -53,6 +53,15 @@ class KaleidoscopeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by KaleidoscopeParser#ForExpression.
+    def enterForExpression(self, ctx:KaleidoscopeParser.ForExpressionContext):
+        pass
+
+    # Exit a parse tree produced by KaleidoscopeParser#ForExpression.
+    def exitForExpression(self, ctx:KaleidoscopeParser.ForExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by KaleidoscopeParser#expression.
     def enterExpression(self, ctx:KaleidoscopeParser.ExpressionContext):
         pass

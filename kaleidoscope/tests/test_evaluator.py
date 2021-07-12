@@ -46,3 +46,14 @@ def test_nested_if_funcion():
     assert e.evaluate("foo(1, 20, 300)") == 2
     assert e.evaluate("foo(10, 2, 300)") == 4
     assert e.evaluate("foo(100, 2000, 30)") == 60
+
+
+def test_for_expr():
+    e = Evaluator()
+    e.evaluate(
+        """
+        def foo(n)
+            for i = 1.0, i < n, 1.0 in i
+        """
+    )
+    assert e.evaluate("foo(9)") == 10.0
