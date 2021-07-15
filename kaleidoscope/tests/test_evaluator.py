@@ -57,3 +57,30 @@ def test_for_expr():
         """
     )
     assert e.evaluate("foo(9)") == 10.0
+
+def test_factorial():
+    e = Evaluator()
+    e.evaluate(
+        """
+        def factorial(n)
+            if n < 2 then 1 else n * factorial(n - 1)
+        """
+    )
+    assert e.evaluate("factorial(1)") == 1.0
+    assert e.evaluate("factorial(4)") == 24.0
+    assert e.evaluate("factorial(5)") == 120.0
+
+def test_fibonacci():
+    e = Evaluator()
+    e.evaluate(
+        """
+        def fib(n)
+            if n < 1 then 0
+            else if n < 2 then 1
+                 else fib(n - 1) + fib(n - 2)
+        """
+    )
+    assert e.evaluate("fib(0)") == 0.0
+    assert e.evaluate("fib(1)") == 1.0
+    assert e.evaluate("fib(6)") == 8.0
+    assert e.evaluate("fib(12)") == 144.0
